@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1336012290 source:c:\users\jeff\dropbox\tojam\tojam\capp.cpp
+	"CApp.h"
+
+1335887676 c:\users\jeff\dropbox\tojam\tojam\capp.h
+	<SDL/SDL.h>
+
+1335878452 source:c:\users\jeffreyp\dropbox\tojam\tojam\capp.cpp
+	"CApp.h"
+
+1335878316 c:\users\jeffreyp\dropbox\tojam\tojam\capp.h
+	<SDL/SDL.h>
+
