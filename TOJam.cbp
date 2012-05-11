@@ -31,8 +31,33 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="CAnimation.cpp" />
+		<Unit filename="CAnimation.h" />
 		<Unit filename="CApp.cpp" />
 		<Unit filename="CApp.h" />
+		<Unit filename="CArea.cpp" />
+		<Unit filename="CArea.h" />
+		<Unit filename="CCamera.cpp" />
+		<Unit filename="CCamera.h" />
+		<Unit filename="CCitizen.cpp" />
+		<Unit filename="CCitizen.h" />
+		<Unit filename="CCity.cpp" />
+		<Unit filename="CCity.h" />
+		<Unit filename="CEntity.cpp" />
+		<Unit filename="CEntity.h" />
+		<Unit filename="CEvent.cpp" />
+		<Unit filename="CEvent.h" />
+		<Unit filename="CFPS.cpp" />
+		<Unit filename="CFPS.h" />
+		<Unit filename="CMap.cpp" />
+		<Unit filename="CMap.h" />
+		<Unit filename="COverview.cpp" />
+		<Unit filename="COverview.h" />
+		<Unit filename="CSurface.cpp" />
+		<Unit filename="CSurface.h" />
+		<Unit filename="CTile.cpp" />
+		<Unit filename="CTile.h" />
+		<Unit filename="Define.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />

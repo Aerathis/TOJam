@@ -1,13 +1,227 @@
 # depslib dependency file v1.0
-1336012290 source:c:\users\jeff\dropbox\tojam\tojam\capp.cpp
+1336776917 source:c:\users\jeff\dropbox\tojam\tojam\capp.cpp
 	"CApp.h"
 
-1335887676 c:\users\jeff\dropbox\tojam\tojam\capp.h
-	<SDL/SDL.h>
+1336776782 c:\users\jeff\dropbox\tojam\tojam\capp.h
+	<SDL.h>
+	"CAnimation.h"
+	"CCamera.h"
+	"CEntity.h"
+	"CEvent.h"
+	"CMenu.h"
+	"COverview.h"
+	"CPanel.h"
+	"CSurface.h"
+	"Define.h"
 
-1335878452 source:c:\users\jeffreyp\dropbox\tojam\tojam\capp.cpp
+1336498748 source:c:\users\jeffreyp\dropbox\tojam\tojam\capp.cpp
 	"CApp.h"
+	<iostream>
 
-1335878316 c:\users\jeffreyp\dropbox\tojam\tojam\capp.h
-	<SDL/SDL.h>
+1336489971 c:\users\jeffreyp\dropbox\tojam\tojam\capp.h
+	<SDL.h>
+	"CAnimation.h"
+	"CArea.h"
+	"CCamera.h"
+	"CEntity.h"
+	"CEvent.h"
+	"CSurface.h"
+	"Define.h"
+
+1336492112 c:\users\jeffreyp\dropbox\tojam\tojam\csurface.h
+	<string>
+	<SDL.h>
+
+1336492106 source:c:\users\jeffreyp\dropbox\tojam\tojam\csurface.cpp
+	"CSurface.h"
+
+1336139280 source:c:\users\jeffreyp\dropbox\tojam\tojam\cevent.cpp
+	"CEvent.h"
+
+1336400399 c:\users\jeffreyp\dropbox\tojam\tojam\cevent.h
+	<SDL.h>
+
+1336139280 source:c:\users\jeff\dropbox\tojam\tojam\cevent.cpp
+	"CEvent.h"
+
+1336400131 c:\users\jeff\dropbox\tojam\tojam\cevent.h
+	<SDL.h>
+
+1336144356 source:c:\users\jeff\dropbox\tojam\tojam\csurface.cpp
+	"CSurface.h"
+
+1336492112 c:\users\jeff\dropbox\tojam\tojam\csurface.h
+	<string>
+	<SDL.h>
+
+1336400120 c:\users\jeff\dropbox\tojam\tojam\canimation.h
+	<SDL.h>
+
+1336778212 c:\users\jeff\dropbox\tojam\tojam\centity.h
+	<vector>
+	"CArea.h"
+	"CAnimation.h"
+	"CCity.h"
+	"CCitizen.h"
+	"CFPS.h"
+	"CInventory.h"
+	"CStats.h"
+	"CSurface.h"
+	"Define.h"
+
+1336756154 source:c:\users\jeff\dropbox\tojam\tojam\centity.cpp
+	"CEntity.h"
+
+1336332211 source:c:\users\jeff\dropbox\tojam\tojam\canimation.cpp
+	"CAnimation.h"
+
+1336400120 c:\users\jeffreyp\dropbox\tojam\tojam\canimation.h
+	<SDL.h>
+
+1336499609 c:\users\jeffreyp\dropbox\tojam\tojam\centity.h
+	<vector>
+	"CAnimation.h"
+	"CSurface.h"
+
+1336492130 source:c:\users\jeffreyp\dropbox\tojam\tojam\centity.cpp
+	"CEntity.h"
+
+1336332211 source:c:\users\jeffreyp\dropbox\tojam\tojam\canimation.cpp
+	"CAnimation.h"
+
+1336400999 c:\users\jeffreyp\dropbox\tojam\tojam\define.h
+
+1336491802 source:c:\users\jeffreyp\dropbox\tojam\tojam\carea.cpp
+	"CArea.h"
+	<iostream>
+
+1336484708 c:\users\jeffreyp\dropbox\tojam\tojam\carea.h
+	"CMap.h"
+
+1336422672 c:\users\jeffreyp\dropbox\tojam\tojam\cmap.h
+	<SDL.h>
+	<vector>
+	"CTile.h"
+	"CSurface.h"
+
+1336485028 c:\users\jeffreyp\dropbox\tojam\tojam\ctile.h
+	"Define.h"
+
+1336493668 source:c:\users\jeffreyp\dropbox\tojam\tojam\cmap.cpp
+	"CMap.h"
+
+1336485114 source:c:\users\jeffreyp\dropbox\tojam\tojam\ctile.cpp
+	"CTile.h"
+
+1336490963 c:\users\jeffreyp\dropbox\tojam\tojam\ccamera.h
+	<SDL.h>
+	"Define.h"
+
+1336489535 source:c:\users\jeffreyp\dropbox\tojam\tojam\ccamera.cpp
+	"CCamera.h"
+
+1336498659 source:c:\users\jeffreyp\dropbox\tojam\tojam\cfps.cpp
+	"CFPS.h"
+
+1336497997 c:\users\jeffreyp\dropbox\tojam\tojam\cfps.h
+	<SDL.h>
+
+1336491802 source:c:\users\jeff\dropbox\tojam\tojam\carea.cpp
+	"CArea.h"
+	<iostream>
+
+1336484708 c:\users\jeff\dropbox\tojam\tojam\carea.h
+	"CMap.h"
+
+1336422672 c:\users\jeff\dropbox\tojam\tojam\cmap.h
+	<SDL.h>
+	<vector>
+	"CTile.h"
+	"CSurface.h"
+
+1336485028 c:\users\jeff\dropbox\tojam\tojam\ctile.h
+	"Define.h"
+
+1336777707 c:\users\jeff\dropbox\tojam\tojam\define.h
+	<string>
+
+1336489535 source:c:\users\jeff\dropbox\tojam\tojam\ccamera.cpp
+	"CCamera.h"
+
+1336490963 c:\users\jeff\dropbox\tojam\tojam\ccamera.h
+	<SDL.h>
+	"Define.h"
+
+1336498659 source:c:\users\jeff\dropbox\tojam\tojam\cfps.cpp
+	"CFPS.h"
+
+1336497997 c:\users\jeff\dropbox\tojam\tojam\cfps.h
+	<SDL.h>
+
+1336493668 source:c:\users\jeff\dropbox\tojam\tojam\cmap.cpp
+	"CMap.h"
+
+1336485114 source:c:\users\jeff\dropbox\tojam\tojam\ctile.cpp
+	"CTile.h"
+
+1336768179 source:c:\users\jeff\dropbox\tojam\tojam\ccitizen.cpp
+	"CCitizen.h"
+
+1336762178 c:\users\jeff\dropbox\tojam\tojam\ccitizen.h
+	<SDL.h>
+	<vector>
+	"CSurface.h"
+	"Define.h"
+
+1336766925 source:c:\users\jeff\dropbox\tojam\tojam\ccity.cpp
+	"CCity.h"
+
+1336766637 c:\users\jeff\dropbox\tojam\tojam\ccity.h
+	<vector>
+	<SDL.h>
+	<string>
+	"CSurface.h"
+	"CCitizen.h"
+
+1336766520 source:c:\users\jeff\dropbox\tojam\tojam\coverview.cpp
+	"COverview.h"
+
+1336762279 c:\users\jeff\dropbox\tojam\tojam\coverview.h
+	<vector>
+	<SDL.h>
+	"CSurface.h"
+	"CCity.h"
+
+1336762636 source:c:\users\jeff\dropbox\tojam\tojam\cstats.cpp
+	"CStats.h"
+
+1336756114 c:\users\jeff\dropbox\tojam\tojam\cstats.h
+	<vector>
+
+1336753021 source:c:\users\jeff\dropbox\tojam\tojam\cinventory.cpp
+	"CInventory.h"
+
+1336753006 c:\users\jeff\dropbox\tojam\tojam\cinventory.h
+	<vector>
+	<string>
+	"CEntity.h"
+	"Define.h"
+
+1336777767 source:c:\users\jeff\dropbox\tojam\tojam\cmenu.cpp
+	"CMenu.h"
+
+1336777795 c:\users\jeff\dropbox\tojam\tojam\cmenu.h
+	<string>
+	<vector>
+	<SDL.h>
+	"Define.h"
+
+1336774919 source:c:\users\jeff\dropbox\tojam\tojam\cpanel.cpp
+	"CPanel.h"
+
+1336774900 c:\users\jeff\dropbox\tojam\tojam\cpanel.h
+	<string>
+	<vector>
+	<SDL.h>
+	"CStats.h"
 
