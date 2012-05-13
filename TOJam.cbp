@@ -35,10 +35,6 @@
 		<Unit filename="CAnimation.h" />
 		<Unit filename="CApp.cpp" />
 		<Unit filename="CApp.h" />
-		<Unit filename="CArea.cpp" />
-		<Unit filename="CArea.h" />
-		<Unit filename="CCamera.cpp" />
-		<Unit filename="CCamera.h" />
 		<Unit filename="CCitizen.cpp" />
 		<Unit filename="CCitizen.h" />
 		<Unit filename="CCity.cpp" />
@@ -49,14 +45,20 @@
 		<Unit filename="CEvent.h" />
 		<Unit filename="CFPS.cpp" />
 		<Unit filename="CFPS.h" />
-		<Unit filename="CMap.cpp" />
-		<Unit filename="CMap.h" />
+		<Unit filename="CInventory.cpp" />
+		<Unit filename="CInventory.h" />
+		<Unit filename="CMenu.cpp" />
+		<Unit filename="CMenu.h" />
 		<Unit filename="COverview.cpp" />
 		<Unit filename="COverview.h" />
+		<Unit filename="CPanel.cpp" />
+		<Unit filename="CPanel.h" />
+		<Unit filename="CStats.cpp" />
+		<Unit filename="CStats.h" />
 		<Unit filename="CSurface.cpp" />
 		<Unit filename="CSurface.h" />
-		<Unit filename="CTile.cpp" />
-		<Unit filename="CTile.h" />
+		<Unit filename="CTextBox.cpp" />
+		<Unit filename="CTextBox.h" />
 		<Unit filename="Define.h" />
 		<Extensions>
 			<code_completion />

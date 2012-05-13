@@ -1,11 +1,15 @@
 #include "CApp.h"
 
+#include <iostream>
+e_currentView CApp::viewControl;
+
 CApp::CApp()
 {
     dpy = NULL;
     running = true;
     currentView = e_other;
     time = 0;
+    CEntity::entityList.push_back(&dude);
 }
 
 bool CApp::onInit()
@@ -18,7 +22,15 @@ bool CApp::onInit()
     {
         return false;
     }
-    if (!gameWorld.onLoad("./world.world"))
+    if (!dude.onLoad("./car.bmp",0,0,0))
+    {
+        return false;
+    }
+    if (!gameWorld.onLoad("./cities"))
+    {
+        return false;
+    }
+    if (!CInventory::inventoryControl.onLoad())
     {
         return false;
     }
@@ -40,17 +52,45 @@ void CApp::onLoop()
     {
         if (!CEntity::entityList[i])
             continue;
-        CEntity::entityList[i]->onLoop();
+        CEntity::entityList[i]->onLoop(&currentView);
     }
 }
 
 void CApp::onRender()
 {
-    for (int i = 0; i < CEntity::entityList.size(); i++)
+    switch (currentView)
     {
-        if (!CEntity::entityList[i])
-            continue;
-        CEntity::entityList[i]->onRender(dpy);
+        case e_overView:
+            {
+                // Render just the overview map
+                gameWorld.onRender(dpy);
+                CInventory::inventoryControl.onRender(dpy);
+                CEntity::entityList[0]->onRender(dpy);
+            }
+            break;
+        case e_city:
+            {
+                // Render the city map with a manu of the citizens overlaying it
+                CEntity::entityList[0]->getCurrentLocation()->onRender(dpy);
+                CInventory::inventoryControl.onRender(dpy);
+                CCity* location = CEntity::entityList[0]->getCurrentLocation();
+                int numCits = location->getCitizenList().size();
+                for (int i = 0; i < numCits; i++)
+                {
+                    CEntity::entityList[0]->getCurrentLocation()->getCitizenList()[i]->onRender(dpy, (200 * i) + 50, 300);
+                }
+                CMenu::menuController.onRender(dpy, 0, 0);
+            }
+            break;
+        case e_convo:
+            {
+                // Render the current conversation and a menu of choices overlaying it
+                CEntity::entityList[0]->getCurrentConvo()->onRender(dpy,0,0);
+                CInventory::inventoryControl.onRender(dpy);
+                CMenu::menuController.onRender(dpy, 0, 0);
+            }
+            break;
+        default: {}
     }
     SDL_Flip(dpy);
 }
@@ -109,6 +149,7 @@ int CApp::onExecute()
 
 void CApp::onLButtonDown(int x, int y)
 {
+    s_eventResult results;
     if (currentView == e_convo)
     {
         if (CMenu::menuController.isBuilt())
@@ -122,22 +163,74 @@ void CApp::onLButtonDown(int x, int y)
                 CMenu::menuController.handleClick(x, y);
             }
         }
+        else
+        {
+
+        }
     }
     if (currentView == e_city)
     {
+        s_eventResult results;
+        int selection;
+        if (CMenu::menuController.isBuilt())
+        {
+            if (!CMenu::menuController.isActive())
+            {
+                CMenu::menuController.makeActive();
+            }
+            else
+            {
+                selection = CMenu::menuController.handleClick(x,y);
+                if (selection != -1)
+                {
+                    switch (selection)
+                    {
+                        case 0: results.menuAction = CMenu::menuController.getMenuFormat().firstItem;
+                        case 1: results.menuAction = CMenu::menuController.getMenuFormat().secondItem;
+                        case 3: results.menuAction = CMenu::menuController.getMenuFormat().thirdItem;
+                        case 4: results.menuAction = CMenu::menuController.getMenuFormat().fourthItem;
+                        case 5: results.menuAction = CMenu::menuController.getMenuFormat().fifthItem;
+                    }
 
+                    if (results.menuAction.selection == e_menuBuy)
+                    {
+                        results.type = e_buy;
+                    }
+                    else if (results.menuAction.selection == e_menuSell)
+                    {
+                        results.type = e_sell;
+                    }
+                    else if (results.menuAction.selection == e_startConvo)
+                    {
+                        results.type = e_enterConvo;
+                    }
+                    else
+                    {
+                        results.type = e_leave;
+                    }
+                }
+            }
+        }
+        else{}
     }
     if (currentView == e_overView)
     {
         int selection = gameWorld.handleClick(x, y);
         if (selection != -1)
         {
-            s_eventResult results;
             results.type = e_moveToCity;
             results.view = e_overView;
-            results.selection = selection;
-            CEntity* tempDude = CEntity::entityList[0];
-            tempDude->processEventResults(results);
+            switch (selection)
+            {
+                case 0: results.citySelection = e_first; break;
+                case 1: results.citySelection = e_second; break;
+                case 2: results.citySelection = e_third; break;
+                case 3: results.citySelection = e_fourth; break;
+                case 4: results.citySelection = e_fifth; break;
+                case 5: results.citySelection = e_home; break;
+                default: {}
+            }
+            CEntity::entityList[0]->processEventResults(results,&currentView);
         }
     }
 }
@@ -164,11 +257,25 @@ void CApp::onMouseMove(int x, int y, int xrel, int yrel, bool lDown, bool rDown,
   }
   if (currentView == e_city)
   {
+        if (CMenu::menuController.isBuilt())
+        {
+            if (!CMenu::menuController.isActive())
+            {
+                CMenu::menuController.makeActive();
+            }
+            else
+            {
+                CMenu::menuController.handleMove(x,y);
+            }
+        }
+        else
+        {
 
+        }
   }
   if (currentView == e_overView)
   {
-
+        gameWorld.handleMouseOver(x, y);
   }
 }
 

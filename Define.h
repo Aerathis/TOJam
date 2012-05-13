@@ -4,12 +4,14 @@
 #define MAP_WIDTH 40
 #define MAP_HEIGHT 40
 #define TILE_SIZE 16
-#define WWIDTH 800
-#define WHEIGHT 600
+#define WWIDTH 1280
+#define WHEIGHT 720
 #define PORTRAITWIDTH 100
 #define MENUITEMWIDTH 50
 
 #include <string>
+
+class CCitizen;
 
 enum e_currentView
 {
@@ -35,11 +37,43 @@ enum e_menuType
     e_convoMenu
 };
 
+enum e_menuSelection
+{
+    e_menuBuy,
+    e_menuSell,
+    e_menuLeave,
+    e_startConvo
+};
+
 struct s_inventoryItem
 {
     std::string name;
     int value;
     int quantity;
+};
+
+struct s_saleItem
+{
+    s_inventoryItem item;
+    int buyPrice;
+    int salePrice;
+};
+
+struct s_menuAction
+{
+    e_menuSelection selection;
+    s_saleItem item;
+    CCitizen* convoTarget;
+};
+
+enum e_cities
+{
+    e_first = 0,
+    e_second,
+    e_third,
+    e_fourth,
+    e_fifth,
+    e_home
 };
 
 struct s_item
@@ -50,18 +84,20 @@ struct s_item
 
 struct s_menuFormat
 {
-    int firstItem;
-    int secondItem;
-    int thirdItem;
-    int fourthItem;
-    int fifthItem;
+    s_menuAction firstItem;
+    s_menuAction secondItem;
+    s_menuAction thirdItem;
+    s_menuAction fourthItem;
+    s_menuAction fifthItem;
 };
 
 struct s_eventResult
 {
     e_currentView view;
     e_resultType type;
-    int selection;
+    e_cities citySelection;
+    s_menuAction menuAction;
+
 };
 
 #endif //DEFINE_H

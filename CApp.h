@@ -7,6 +7,7 @@
 #include "CCamera.h"
 #include "CEntity.h"
 #include "CEvent.h"
+#include "CInventory.h"
 #include "CMenu.h"
 #include "COverview.h"
 #include "CPanel.h"
@@ -22,11 +23,13 @@ class CApp : public CEvent
 
     CEntity dude;
     COverview gameWorld;
-    e_currentView currentView;
     int time;
 
   public:
     CApp();
+
+    e_currentView currentView;
+    static e_currentView viewControl;
 
     int onExecute();
     bool onInit();
@@ -39,6 +42,9 @@ class CApp : public CEvent
     void onKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode);
     void onLButtonDown(int x, int y);
     void onMouseMove(int x, int y, int xrel, int yrel, bool lDown, bool rDown, bool mDown);
+
+    s_menuFormat buildCityMenuData(CCity* location);
+    s_menuFormat buildConvoMenuData(CCitizen* convo);
 };
 
 #endif //CAPP_H

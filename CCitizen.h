@@ -2,16 +2,11 @@
 #define _CCITIZEN_H
 
 #include <SDL.h>
+#include <string>
 #include <vector>
 
 #include "CSurface.h"
 #include "Define.h"
-
-struct s_saleItem
-{
-    s_inventoryItem item;
-    int price;
-};
 
 class CCitizen
 {
@@ -21,12 +16,14 @@ class CCitizen
         std::vector<s_saleItem> wants;
         std::vector<s_saleItem> has;
         bool inConvo;
+        std::string name;
+        std::string description;
 
     public:
         CCitizen();
 
         bool onLoad(char* file);
-        void onRender(SDL_Surface* dpy);
+        void onRender(SDL_Surface* dpy, int x, int y);
         void onCleanup();
 
         void sellWant(s_saleItem want);

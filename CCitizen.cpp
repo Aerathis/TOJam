@@ -5,7 +5,6 @@ CCitizen::CCitizen()
     portrait = NULL;
     closeUp = NULL;
     inConvo = false;
-    wants.clear();
     has.clear();
 }
 
@@ -17,31 +16,49 @@ bool CCitizen::onLoad(char* file)
     FILE* fileHandle = fopen(file,"r");
     if (fileHandle == NULL)
         return false;
-    char name[80];
-    fscanf(fileHandle,"%s\n",name);
+    char names[80];
+    fscanf(fileHandle,"%s\n",names);
+    name = names;
+    char descr[255];
+    fscanf(fileHandle, "%[^\n]",descr);
+    char portraitFile[80];
+    fscanf(fileHandle, "%s\n",portraitFile);
+    portrait = CSurface::onLoad(portraitFile);
+    CSurface::transparent(portrait,255,0,255);
     int numHaves;
     fscanf(fileHandle,"%d,\n",&numHaves);
     for (int i = 0; i < numHaves; i++)
     {
         char itemName[80];
         int quantity;
-        int price;
-        fscanf(fileHandle,"%s,%d,%d\n",itemName,&quantity,&price);
+        int buyPrice;
+        int sellPrice;
+        fscanf(fileHandle,"%s,%d,%d,%d\n",itemName,&quantity,&buyPrice,&sellPrice);
+        s_inventoryItem tempInv;
+        s_saleItem tempItem;
+        tempInv.name = itemName;
+        tempInv.quantity = quantity;
+        tempInv.value = 0;
+        tempItem.item = tempInv;
+        tempItem.buyPrice = buyPrice;
+        tempItem.salePrice = sellPrice;
+        has.push_back(tempItem);
     }
+    fclose(fileHandle);
     return true;
 }
 
-void CCitizen::onRender(SDL_Surface* dpy)
+void CCitizen::onRender(SDL_Surface* dpy, int x, int y)
 {
     if (dpy == NULL || portrait == NULL || closeUp || NULL)
         return;
     if (inConvo)
     {
-        CSurface::onDraw(dpy, closeUp, 320, 0);
+        CSurface::onDraw(dpy, closeUp, 550, 100);
     }
     else
     {
-        CSurface::onDraw(dpy, portrait, 0, 0);
+        CSurface::onDraw(dpy, portrait, x, y);
     }
 }
 

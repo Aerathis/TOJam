@@ -48,6 +48,23 @@ void CInventory::removeItem(s_inventoryItem* item)
     }
 }
 
+bool CInventory::onLoad()
+{
+    invPanel = CSurface::onLoad("./inventory.bmp");
+    if (invPanel == NULL)
+        return false;
+
+    CSurface::transparent(invPanel,255,0,255);
+    return true;
+}
+
+void CInventory::onRender(SDL_Surface* dpy)
+{
+    if (invPanel == NULL || dpy == NULL)
+        return;
+    CSurface::onDraw(dpy, invPanel, 910, 25);
+}
+
 void CInventory::buyItem(s_inventoryItem* item,int price)
 {
     std::vector<s_inventoryItem*>::iterator it;

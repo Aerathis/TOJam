@@ -15,12 +15,20 @@ class CCity
         std::vector<CCitizen*> citizens;
         std::vector<CCity*> neighbours;
         std::string cityName;
+        e_cities nameEnum;
+        int mapX;
+        int mapY;
 
     public:
         CCity();
         bool onLoad(char* file);
         void onRender(SDL_Surface* dpy);
         void onCleanup();
+        int getNameEnum();
+        int getMapX();
+        int getMapY();
+        std::string getCityName();
+        std::vector<CCitizen*> getCitizenList();
 
 };
 
