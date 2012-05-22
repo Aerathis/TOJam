@@ -47,8 +47,11 @@
 		<Unit filename="CFPS.h" />
 		<Unit filename="CInventory.cpp" />
 		<Unit filename="CInventory.h" />
+		<Unit filename="CItem.h" />
 		<Unit filename="CMenu.cpp" />
 		<Unit filename="CMenu.h" />
+		<Unit filename="CNumbers.cpp" />
+		<Unit filename="CNumbers.h" />
 		<Unit filename="COverview.cpp" />
 		<Unit filename="COverview.h" />
 		<Unit filename="CPanel.cpp" />
@@ -59,6 +62,7 @@
 		<Unit filename="CSurface.h" />
 		<Unit filename="CTextBox.cpp" />
 		<Unit filename="CTextBox.h" />
+		<Unit filename="Citem.cpp" />
 		<Unit filename="Define.h" />
 		<Extensions>
 			<code_completion />

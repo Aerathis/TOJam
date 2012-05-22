@@ -23,7 +23,7 @@ class COverview
 
         static std::vector<CCity*> getCityList();
 
-        int handleClick(int xPos, int yPos);
+        e_cities handleClick(int xPos, int yPos);
         void handleMouseOver(int xPos, int yPos);
 };
 

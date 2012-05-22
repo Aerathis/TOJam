@@ -54,7 +54,7 @@ void COverview::onCleanup()
     overviewMap = NULL;
 }
 
-int COverview::handleClick(int xPos, int yPos)
+e_cities COverview::handleClick(int xPos, int yPos)
 {
     //Return the numeric index of the city that was clicked on
 
@@ -67,10 +67,10 @@ int COverview::handleClick(int xPos, int yPos)
         if (xPos > cityx - 25 && xPos < cityx + 25 &&
             yPos > cityy - 25 && yPos < cityy + 25)
             {
-                return i;
+                return tempCity.getNameEnum();
             }
     }
-    return -1;
+    return e_none;
 }
 
 void COverview::handleMouseOver(int xPos, int yPos)

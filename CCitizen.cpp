@@ -34,14 +34,14 @@ bool CCitizen::onLoad(char* file)
         int buyPrice;
         int sellPrice;
         fscanf(fileHandle,"%s,%d,%d,%d\n",itemName,&quantity,&buyPrice,&sellPrice);
-        s_inventoryItem tempInv;
-        s_saleItem tempItem;
-        tempInv.name = itemName;
-        tempInv.quantity = quantity;
-        tempInv.value = 0;
-        tempItem.item = tempInv;
-        tempItem.buyPrice = buyPrice;
-        tempItem.salePrice = sellPrice;
+        s_inventoryItem* tempInv = new s_inventoryItem;
+        s_saleItem* tempItem = new s_saleItem;
+        tempInv->name = itemName;
+        tempInv->quantity = quantity;
+        tempInv->value = 0;
+        tempItem->item = tempInv;
+        tempItem->buyPrice = buyPrice;
+        tempItem->salePrice = sellPrice;
         has.push_back(tempItem);
     }
     fclose(fileHandle);
@@ -64,21 +64,21 @@ void CCitizen::onRender(SDL_Surface* dpy, int x, int y)
 
 void CCitizen::buyHas(s_saleItem item, int quantity)
 {
-    std::vector<s_saleItem>::iterator it;
+    std::vector<s_saleItem*>::iterator it;
     bool found = false;
     for (it = has.begin(); it != has.end(); ++it)
     {
         if (found)
             break;
-        s_saleItem* tempItem = &*it;
-        if (tempItem->item.name == item.item.name)
+        s_saleItem* tempItem = *it;
+        if (tempItem->item->name == item.item->name)
         {
             found = true;
-            if (quantity > tempItem->item.quantity)
+            if (quantity > tempItem->item->quantity)
             {
-                quantity = tempItem->item.quantity;
+                quantity = tempItem->item->quantity;
             }
-            tempItem->item.quantity -= quantity;
+            tempItem->item->quantity -= quantity;
         }
     }
 }
@@ -92,10 +92,10 @@ void CCitizen::sellWant(s_saleItem item)
         if (found)
             break;
         s_saleItem* tempItem = &*it;
-        if (tempItem->item.name == item.item.name)
+        if (tempItem->item->name == item.item->name)
         {
             found = true;
-            tempItem->item.quantity += item.item.quantity;
+            tempItem->item->quantity += item.item->quantity;
         }
     }
 }
@@ -112,4 +112,9 @@ void CCitizen::onCleanup()
     }
     portrait = NULL;
     closeUp = NULL;
+}
+
+std::vector<s_saleItem*> CCitizen::getHas()
+{
+    return has;
 }

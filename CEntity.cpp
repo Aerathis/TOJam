@@ -1,7 +1,5 @@
 #include "CEntity.h"
 
-#include <iostream>
-
 std::vector<CEntity*> CEntity::entityList;
 
 CEntity::CEntity()
@@ -50,8 +48,26 @@ void CEntity::onLoop(e_currentView* view)
             else
             {
                 float deg = atan(dy/dx);
-                x += cos(deg);
-                y += sin(deg);
+                if ( x > location->getMapX() && y > location->getMapY())
+                {
+                    x -= cos(deg);
+                    y -= sin(deg);
+                }
+                else if (x < location->getMapX() && y > location->getMapY())
+                {
+                    x += cos(deg);
+                    y += sin(deg);
+                }
+                else if (x > location->getMapX() && y < location->getMapY())
+                {
+                    x -= cos(deg);
+                    y -= sin(deg);
+                }
+                else if (x < location->getMapX() && y < location->getMapY())
+                {
+                    x += cos(deg);
+                    y += sin(deg);
+                }
             }
         }
         if (x == location->getMapX() && y == location->getMapY())
@@ -96,9 +112,9 @@ CCitizen* CEntity::getCurrentConvo()
 void CEntity::sellToCitizen(s_saleItem item)
 {
     currentConvo->sellWant(item);
-    for (int i = 0; i < item.item.quantity; i++)
+    for (int i = 0; i < item.item->quantity; i++)
     {
-        CInventory::inventoryControl.sellItem(&item.item, item.buyPrice);
+        CInventory::inventoryControl.sellItem(item.item, item.buyPrice);
     }
 }
 
@@ -107,13 +123,13 @@ void CEntity::buyFromCitizen(s_saleItem item, int quantity)
     currentConvo->buyHas(item, quantity);
     for (int i = 0; i < quantity; i++)
     {
-        CInventory::inventoryControl.buyItem(&item.item, item.salePrice);
+        CInventory::inventoryControl.buyItem(item.item, item.salePrice);
     }
-    if (item.item.name == "gas")
+    if (item.item->name == "gas")
     {
         for (int j = 0; j < quantity; j++)
         {
-            CInventory::inventoryControl.removeItem(&item.item);
+            CInventory::inventoryControl.removeItem(item.item);
             playerStats.getGas(1);
         }
     }
@@ -131,6 +147,7 @@ void CEntity::processEventResults(s_eventResult results, e_currentView* view)
         case e_enterConvo:
             {
                 *view = e_convo;
+                currentConvo = location->getCitizenList()[results.convoChoice];
             }
             break;
         case e_leave:
@@ -142,6 +159,7 @@ void CEntity::processEventResults(s_eventResult results, e_currentView* view)
                 else if (results.view == e_city)
                 {
                     *view = e_overView;
+                    location = NULL;
                 }
             }
             break;

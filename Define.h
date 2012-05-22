@@ -42,7 +42,8 @@ enum e_menuSelection
     e_menuBuy,
     e_menuSell,
     e_menuLeave,
-    e_startConvo
+    e_startConvo,
+    e_menuNone
 };
 
 struct s_inventoryItem
@@ -54,7 +55,7 @@ struct s_inventoryItem
 
 struct s_saleItem
 {
-    s_inventoryItem item;
+    s_inventoryItem* item;
     int buyPrice;
     int salePrice;
 };
@@ -73,7 +74,8 @@ enum e_cities
     e_third,
     e_fourth,
     e_fifth,
-    e_home
+    e_home,
+    e_none
 };
 
 struct s_item
@@ -97,6 +99,7 @@ struct s_eventResult
     e_resultType type;
     e_cities citySelection;
     s_menuAction menuAction;
+    int convoChoice;
 
 };
 

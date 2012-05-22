@@ -24,9 +24,10 @@ class CCity
         bool onLoad(char* file);
         void onRender(SDL_Surface* dpy);
         void onCleanup();
-        int getNameEnum();
+        e_cities getNameEnum();
         int getMapX();
         int getMapY();
+        int handleClick(int xPos, int yPos);
         std::string getCityName();
         std::vector<CCitizen*> getCitizenList();
 

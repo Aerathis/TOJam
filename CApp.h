@@ -8,7 +8,9 @@
 #include "CEntity.h"
 #include "CEvent.h"
 #include "CInventory.h"
+#include "CItem.h"
 #include "CMenu.h"
+#include "CNumbers.h"
 #include "COverview.h"
 #include "CPanel.h"
 #include "CSurface.h"
@@ -24,11 +26,13 @@ class CApp : public CEvent
     CEntity dude;
     COverview gameWorld;
     int time;
+    //TTF_Font* font;
 
   public:
     CApp();
 
     e_currentView currentView;
+    e_currentView prevView;
     static e_currentView viewControl;
 
     int onExecute();

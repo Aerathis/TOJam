@@ -1,16 +1,17 @@
 # depslib dependency file v1.0
-1336927545 source:c:\users\jeff\dropbox\tojam\tojam\capp.cpp
+1336952112 source:c:\users\jeff\dropbox\tojam\tojam\capp.cpp
 	"CApp.h"
-	<iostream>
 
-1336878195 c:\users\jeff\dropbox\tojam\tojam\capp.h
+1336939804 c:\users\jeff\dropbox\tojam\tojam\capp.h
 	<SDL.h>
 	"CAnimation.h"
 	"CCamera.h"
 	"CEntity.h"
 	"CEvent.h"
 	"CInventory.h"
+	"CItem.h"
 	"CMenu.h"
+	"CNumbers.h"
 	"COverview.h"
 	"CPanel.h"
 	"CSurface.h"
@@ -74,9 +75,8 @@
 	"CSurface.h"
 	"Define.h"
 
-1336923806 source:c:\users\jeff\dropbox\tojam\tojam\centity.cpp
+1336952891 source:c:\users\jeff\dropbox\tojam\tojam\centity.cpp
 	"CEntity.h"
-	<iostream>
 
 1336332211 source:c:\users\jeff\dropbox\tojam\tojam\canimation.cpp
 	"CAnimation.h"
@@ -148,7 +148,7 @@
 1336485028 c:\users\jeff\dropbox\tojam\tojam\ctile.h
 	"Define.h"
 
-1336924182 c:\users\jeff\dropbox\tojam\tojam\define.h
+1336952625 c:\users\jeff\dropbox\tojam\tojam\define.h
 	<string>
 
 1336489535 source:c:\users\jeff\dropbox\tojam\tojam\ccamera.cpp
@@ -170,30 +170,30 @@
 1336485114 source:c:\users\jeff\dropbox\tojam\tojam\ctile.cpp
 	"CTile.h"
 
-1336926918 source:c:\users\jeff\dropbox\tojam\tojam\ccitizen.cpp
+1336953545 source:c:\users\jeff\dropbox\tojam\tojam\ccitizen.cpp
 	"CCitizen.h"
 
-1336926873 c:\users\jeff\dropbox\tojam\tojam\ccitizen.h
+1336953547 c:\users\jeff\dropbox\tojam\tojam\ccitizen.h
 	<SDL.h>
 	<string>
 	<vector>
 	"CSurface.h"
 	"Define.h"
 
-1336927701 source:c:\users\jeff\dropbox\tojam\tojam\ccity.cpp
+1336948876 source:c:\users\jeff\dropbox\tojam\tojam\ccity.cpp
 	"CCity.h"
 
-1336927027 c:\users\jeff\dropbox\tojam\tojam\ccity.h
+1336942191 c:\users\jeff\dropbox\tojam\tojam\ccity.h
 	<vector>
 	<SDL.h>
 	<string>
 	"CSurface.h"
 	"CCitizen.h"
 
-1336864494 source:c:\users\jeff\dropbox\tojam\tojam\coverview.cpp
+1336941776 source:c:\users\jeff\dropbox\tojam\tojam\coverview.cpp
 	"COverview.h"
 
-1336787780 c:\users\jeff\dropbox\tojam\tojam\coverview.h
+1336941594 c:\users\jeff\dropbox\tojam\tojam\coverview.h
 	<vector>
 	<SDL.h>
 	"CSurface.h"
@@ -205,7 +205,7 @@
 1336756114 c:\users\jeff\dropbox\tojam\tojam\cstats.h
 	<vector>
 
-1336880968 source:c:\users\jeff\dropbox\tojam\tojam\cinventory.cpp
+1336929529 source:c:\users\jeff\dropbox\tojam\tojam\cinventory.cpp
 	"CInventory.h"
 
 1336878540 c:\users\jeff\dropbox\tojam\tojam\cinventory.h
@@ -215,13 +215,16 @@
 	"CEntity.h"
 	"Define.h"
 
-1336852380 source:c:\users\jeff\dropbox\tojam\tojam\cmenu.cpp
+1336952920 source:c:\users\jeff\dropbox\tojam\tojam\cmenu.cpp
 	"CMenu.h"
 
-1336852293 c:\users\jeff\dropbox\tojam\tojam\cmenu.h
+1336952307 c:\users\jeff\dropbox\tojam\tojam\cmenu.h
 	<string>
 	<vector>
 	<SDL.h>
+	"CCitizen.h"
+	"CItem.h"
+	"CSurface.h"
 	"Define.h"
 
 1336774919 source:c:\users\jeff\dropbox\tojam\tojam\cpanel.cpp
@@ -239,4 +242,21 @@
 1336784024 c:\users\jeff\dropbox\tojam\tojam\ctextbox.h
 	<string>
 	<SDL.h>
+
+1336938587 c:\users\jeff\dropbox\tojam\tojam\citem.h
+	<string>
+	<vector>
+	<SDL.h>
+	"CSurface.h"
+
+1336953176 source:c:\users\jeff\dropbox\tojam\tojam\citem.cpp
+	"CItem.h"
+
+1336939728 c:\users\jeff\dropbox\tojam\tojam\cnumbers.h
+	<vector>
+	<SDL.h>
+	"CSurface.h"
+
+1336939814 source:c:\users\jeff\dropbox\tojam\tojam\cnumbers.cpp
+	"CNumbers.h"
 

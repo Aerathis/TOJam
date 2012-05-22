@@ -1,6 +1,5 @@
 #include "CApp.h"
 
-#include <iostream>
 e_currentView CApp::viewControl;
 
 CApp::CApp()
@@ -8,6 +7,7 @@ CApp::CApp()
     dpy = NULL;
     running = true;
     currentView = e_other;
+    prevView = e_other;
     time = 0;
     CEntity::entityList.push_back(&dude);
 }
@@ -34,9 +34,18 @@ bool CApp::onInit()
     {
         return false;
     }
+    if (!CItem::onLoad("./items"))
+    {
+        return false;
+    }
+    if (!CNumbers::onLoad())
+    {
+        return false;
+    }
     SDL_EnableKeyRepeat(1, SDL_DEFAULT_REPEAT_INTERVAL / 3);
 
     currentView = e_overView;
+    prevView = e_overView;
 
     return true;
 }
@@ -52,8 +61,21 @@ void CApp::onLoop()
     {
         if (!CEntity::entityList[i])
             continue;
-        CEntity::entityList[i]->onLoop(&currentView);
+        if (currentView == e_overView)
+            CEntity::entityList[i]->onLoop(&currentView);
     }
+    if (currentView != prevView)
+    {
+        switch (currentView)
+        {
+            case e_city:
+            {
+                CMenu::menuController.clearMenus();
+            }
+            break;
+        }
+    }
+    prevView = currentView;
 }
 
 void CApp::onRender()
@@ -79,7 +101,6 @@ void CApp::onRender()
                 {
                     CEntity::entityList[0]->getCurrentLocation()->getCitizenList()[i]->onRender(dpy, (200 * i) + 50, 300);
                 }
-                CMenu::menuController.onRender(dpy, 0, 0);
             }
             break;
         case e_convo:
@@ -87,6 +108,7 @@ void CApp::onRender()
                 // Render the current conversation and a menu of choices overlaying it
                 CEntity::entityList[0]->getCurrentConvo()->onRender(dpy,0,0);
                 CInventory::inventoryControl.onRender(dpy);
+                CMenu::menuController.buildMenu(CEntity::entityList[0]->getCurrentConvo());
                 CMenu::menuController.onRender(dpy, 0, 0);
             }
             break;
@@ -160,7 +182,17 @@ void CApp::onLButtonDown(int x, int y)
             }
             else
             {
-                CMenu::menuController.handleClick(x, y);
+                results.menuAction = CMenu::menuController.handleClick(x, y);
+                switch (results.menuAction.selection)
+                {
+                    case e_menuLeave:
+                        {
+                            results.type = e_leave;
+                            results.view = e_convo;
+                        }
+                        break;
+                }
+                CEntity::entityList[0]->processEventResults(results, &currentView);
             }
         }
         else
@@ -168,68 +200,32 @@ void CApp::onLButtonDown(int x, int y)
 
         }
     }
-    if (currentView == e_city)
+    else if (currentView == e_city)
     {
         s_eventResult results;
         int selection;
-        if (CMenu::menuController.isBuilt())
-        {
-            if (!CMenu::menuController.isActive())
-            {
-                CMenu::menuController.makeActive();
-            }
-            else
-            {
-                selection = CMenu::menuController.handleClick(x,y);
-                if (selection != -1)
-                {
-                    switch (selection)
-                    {
-                        case 0: results.menuAction = CMenu::menuController.getMenuFormat().firstItem;
-                        case 1: results.menuAction = CMenu::menuController.getMenuFormat().secondItem;
-                        case 3: results.menuAction = CMenu::menuController.getMenuFormat().thirdItem;
-                        case 4: results.menuAction = CMenu::menuController.getMenuFormat().fourthItem;
-                        case 5: results.menuAction = CMenu::menuController.getMenuFormat().fifthItem;
-                    }
-
-                    if (results.menuAction.selection == e_menuBuy)
-                    {
-                        results.type = e_buy;
-                    }
-                    else if (results.menuAction.selection == e_menuSell)
-                    {
-                        results.type = e_sell;
-                    }
-                    else if (results.menuAction.selection == e_startConvo)
-                    {
-                        results.type = e_enterConvo;
-                    }
-                    else
-                    {
-                        results.type = e_leave;
-                    }
-                }
-            }
-        }
-        else{}
-    }
-    if (currentView == e_overView)
-    {
-        int selection = gameWorld.handleClick(x, y);
+        selection = CEntity::entityList[0]->getCurrentLocation()->handleClick(x,y);
         if (selection != -1)
+        {
+            results.type = e_enterConvo;
+            results.convoChoice = selection;
+            results.view = e_city;
+            CEntity::entityList[0]->processEventResults(results, &currentView);
+        }
+        else if (selection == -1)
+        {
+            results.type = e_leave;
+            results.view = e_city;
+            CEntity::entityList[0]->processEventResults(results,&currentView);
+        }
+    }
+    else if (currentView == e_overView)
+    {
+        results.citySelection = gameWorld.handleClick(x, y);
+        if (results.citySelection != e_none)
         {
             results.type = e_moveToCity;
             results.view = e_overView;
-            switch (selection)
-            {
-                case 0: results.citySelection = e_first; break;
-                case 1: results.citySelection = e_second; break;
-                case 2: results.citySelection = e_third; break;
-                case 3: results.citySelection = e_fourth; break;
-                case 4: results.citySelection = e_fifth; break;
-                case 5: results.citySelection = e_home; break;
-                default: {}
-            }
             CEntity::entityList[0]->processEventResults(results,&currentView);
         }
     }

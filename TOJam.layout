@@ -7,32 +7,32 @@
 	<File name="CAnimation.h" open="0" top="0" tabpos="10">
 		<Cursor position="58" topLine="0" />
 	</File>
-	<File name="CApp.cpp" open="0" top="0" tabpos="2">
-		<Cursor position="5637" topLine="115" />
+	<File name="CApp.cpp" open="1" top="0" tabpos="2">
+		<Cursor position="5460" topLine="204" />
 	</File>
 	<File name="CApp.h" open="1" top="0" tabpos="1">
-		<Cursor position="169" topLine="0" />
+		<Cursor position="523" topLine="35" />
 	</File>
-	<File name="CCitizen.cpp" open="1" top="1" tabpos="3">
-		<Cursor position="618" topLine="11" />
+	<File name="CCitizen.cpp" open="1" top="0" tabpos="4">
+		<Cursor position="2893" topLine="101" />
 	</File>
-	<File name="CCitizen.h" open="1" top="0" tabpos="2">
-		<Cursor position="320" topLine="7" />
+	<File name="CCitizen.h" open="1" top="0" tabpos="3">
+		<Cursor position="594" topLine="12" />
 	</File>
-	<File name="CCity.cpp" open="1" top="0" tabpos="7">
-		<Cursor position="1329" topLine="50" />
+	<File name="CCity.cpp" open="0" top="0" tabpos="7">
+		<Cursor position="2150" topLine="96" />
 	</File>
-	<File name="CCity.h" open="1" top="0" tabpos="6">
-		<Cursor position="336" topLine="8" />
+	<File name="CCity.h" open="0" top="0" tabpos="6">
+		<Cursor position="683" topLine="17" />
 	</File>
-	<File name="CEntity.cpp" open="1" top="0" tabpos="8">
-		<Cursor position="2365" topLine="102" />
+	<File name="CEntity.cpp" open="1" top="0" tabpos="9">
+		<Cursor position="3061" topLine="122" />
 	</File>
-	<File name="CEntity.h" open="0" top="0" tabpos="6">
-		<Cursor position="568" topLine="18" />
+	<File name="CEntity.h" open="0" top="0" tabpos="3">
+		<Cursor position="568" topLine="38" />
 	</File>
 	<File name="CEvent.cpp" open="0" top="0" tabpos="3">
-		<Cursor position="1977" topLine="57" />
+		<Cursor position="4347" topLine="138" />
 	</File>
 	<File name="CEvent.h" open="0" top="0" tabpos="4">
 		<Cursor position="1181" topLine="8" />
@@ -44,22 +44,31 @@
 		<Cursor position="311" topLine="0" />
 	</File>
 	<File name="CInventory.cpp" open="0" top="0" tabpos="4">
-		<Cursor position="1490" topLine="57" />
+		<Cursor position="1485" topLine="57" />
 	</File>
-	<File name="CInventory.h" open="1" top="0" tabpos="5">
-		<Cursor position="437" topLine="16" />
+	<File name="CInventory.h" open="0" top="0" tabpos="5">
+		<Cursor position="368" topLine="15" />
 	</File>
-	<File name="CMenu.cpp" open="0" top="0" tabpos="13">
-		<Cursor position="1448" topLine="55" />
+	<File name="CItem.h" open="1" top="0" tabpos="7">
+		<Cursor position="216" topLine="8" />
 	</File>
-	<File name="CMenu.h" open="0" top="0" tabpos="12">
-		<Cursor position="1042" topLine="10" />
+	<File name="CMenu.cpp" open="1" top="1" tabpos="6">
+		<Cursor position="960" topLine="43" />
+	</File>
+	<File name="CMenu.h" open="1" top="0" tabpos="5">
+		<Cursor position="139" topLine="0" />
+	</File>
+	<File name="CNumbers.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="97" topLine="0" />
+	</File>
+	<File name="CNumbers.h" open="0" top="0" tabpos="0">
+		<Cursor position="285" topLine="3" />
 	</File>
 	<File name="COverview.cpp" open="0" top="0" tabpos="6">
-		<Cursor position="593" topLine="0" />
+		<Cursor position="1589" topLine="60" />
 	</File>
 	<File name="COverview.h" open="0" top="0" tabpos="7">
-		<Cursor position="225" topLine="0" />
+		<Cursor position="486" topLine="11" />
 	</File>
 	<File name="CPanel.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="54" topLine="0" />
@@ -85,7 +94,10 @@
 	<File name="CTextBox.h" open="0" top="0" tabpos="0">
 		<Cursor position="322" topLine="0" />
 	</File>
-	<File name="Define.h" open="1" top="0" tabpos="4">
-		<Cursor position="791" topLine="40" />
+	<File name="Citem.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="108" topLine="9" />
+	</File>
+	<File name="Define.h" open="1" top="0" tabpos="8">
+		<Cursor position="764" topLine="42" />
 	</File>
 </CodeBlocks_layout_file>

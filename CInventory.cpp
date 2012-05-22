@@ -62,7 +62,7 @@ void CInventory::onRender(SDL_Surface* dpy)
 {
     if (invPanel == NULL || dpy == NULL)
         return;
-    CSurface::onDraw(dpy, invPanel, 910, 25);
+    CSurface::onDraw(dpy, invPanel, 900, 25);
 }
 
 void CInventory::buyItem(s_inventoryItem* item,int price)

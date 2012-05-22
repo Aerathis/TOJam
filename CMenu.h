@@ -6,6 +6,9 @@
 
 #include <SDL.h>
 
+#include "CCitizen.h"
+#include "CItem.h"
+#include "CSurface.h"
 #include "Define.h"
 
 class CMenu
@@ -15,18 +18,21 @@ class CMenu
         std::vector<std::string> doubleMenuItems;
         std::string menuText;
         std::string doubleMenuText;
+        SDL_Surface* menuBuyBackground;
+        SDL_Surface* menuSellBackground;
+        bool buy;
         int size;
         bool active;
         bool built;
         bool isDouble;
         int type;
         s_menuFormat selectionFormat;
+        CCitizen* seller;
 
     public:
         static CMenu menuController;
         CMenu();
-        void buildMenu(std::string menuText, std::vector<std::string> menuItems, e_menuType inType);
-        void buildSecondMenu(std::string menuText, std::vector<std::string> menuItems, e_menuType inType);
+        void buildMenu(CCitizen* seller);
         void clearMenus();
         void onRender(SDL_Surface* dpy, int x, int y);
         void onRender(SDL_Surface* dpy, int x, int y, int x2, int y2);
@@ -36,7 +42,7 @@ class CMenu
         bool isDoubleMenu();
         s_menuFormat getMenuFormat();
 
-        int handleClick(int xPos, int yPos);
+        s_menuAction handleClick(int xPos, int yPos);
         void handleMove(int xPos, int yPos);
 };
 
